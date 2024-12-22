@@ -7,8 +7,8 @@ const Home = () => {
     const {name}=useContext(AuthContext)
     return (
         <div>
-           <div className="p-10">
-           <Banner></Banner>
+           <div className="p-10">  
+            <Banner></Banner>
            </div>
            <p>{name}</p>
         </div>
