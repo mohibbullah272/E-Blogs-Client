@@ -1,8 +1,9 @@
-
+import LazyLoad from 'react-lazy-load';
 import banner from '../assets/banner2.jpg'
 const Banner = () => {
     return (
-        <div style={{background:`url(${banner})`,
+<LazyLoad height={600} >
+<div style={{background:`url(${banner})`,
         backgroundPosition:'center',
         backgroundSize:'cover',
        }} className='h-[600px] rounded-3xl  bg-center'  >
@@ -11,6 +12,7 @@ const Banner = () => {
 <p className='text-center text-white/70'>Stay connected with live updates and notifications</p>
 </div>
         </div>
+</LazyLoad>
     );
 };
 

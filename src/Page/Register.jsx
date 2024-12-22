@@ -1,19 +1,34 @@
 import Lottie from "lottie-react";
 import registerLottie from '../assets/RegisterLottie.json'
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { useState } from "react";
-
+import { useContext, useState } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 const Register = () => {
+    const {registerWithGoogle,signUpWithEmail,updateAuthData}=useContext(AuthContext)
     const [showPass,setShowPass]=useState(false)
-
+const handleGoogleRegister=()=>{
+registerWithGoogle()
+.then(result=> {
+    console.log(result.user)
+})
+.catch(err=> console.log(err))
+}
     const handleSubmit=(e)=>{
 e.preventDefault()
 const form = e.target 
-const name = form.name.value 
+const username = form.name.value 
 const password = form.password.value 
 const photo = form.photo.value 
 const email = form.email.value 
-console.table({name,password,photo,email})
+signUpWithEmail(email,password)
+.then(result=>{
+  console.log(result.user)
+  updateAuthData(username,photo)
+  .then(()=>{
+    console.log('profile updated')
+  })
+})
+.catch(err=> console.log(err))
     }
     return (
         <div className='flex md:flex-row-reverse flex-col'>
@@ -56,7 +71,7 @@ console.table({name,password,photo,email})
         </div>
         <div className='divider'>Or</div>
         <div className='  flex justify-center text-center mx-auto'>
-<button className='flex gap-2 items-center btn btn-outline w-full text-center'><FaGoogle></FaGoogle> Register with google</button>
+<button onClick={handleGoogleRegister} className='flex gap-2 items-center btn btn-outline w-full text-center'><FaGoogle></FaGoogle> Register with google</button>
             </div>
       </form>
     </div>

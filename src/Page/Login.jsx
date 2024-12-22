@@ -2,7 +2,10 @@ import Lottie from 'lottie-react';
 import React, { useState } from 'react';
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import loginLottie from '../assets/loginLottie.json'
+import { useContext } from 'react';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 const Login = () => {
+  const {loginWithEmail}=useContext(AuthContext)
      const [showPass,setShowPass]=useState(false)
 
      const handleSubmit=(e)=>{
@@ -11,6 +14,10 @@ const Login = () => {
       const email = form.email.value 
       const password = form.password.value 
       console.table({email,password})
+      loginWithEmail(email,password)
+      .then((result)=>{
+        console.log(result.user)
+      })
      }
     return (
         <div className='flex md:flex-row-reverse flex-col'>

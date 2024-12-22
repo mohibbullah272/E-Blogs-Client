@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { IoNewspaperOutline } from "react-icons/io5";
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import { IoIosLogOut } from "react-icons/io";
 const Navbar = () => {
+  const {user,logout}=useContext(AuthContext)
     const links=<>
     <NavLink className='p-2 font-semibold '  to={'/'}>Home</NavLink>
     <NavLink className='p-2 font-semibold'  to={'/addBlog'}>Add Blog</NavLink>
@@ -10,6 +13,12 @@ const Navbar = () => {
     <NavLink className='p-2 font-semibold'  to={'/wishList'}>WishList</NavLink>
 
     </>
+    const handleLogOut=()=>{
+      logout()
+      .then(()=>{
+        console.log('user get outed')
+      })
+    }
     return (
         <div className="navbar bg-base-100">
         <div className="navbar-start">
@@ -34,6 +43,19 @@ const Navbar = () => {
              {
                 links
              }
+                {
+                  user? <div className='flex mt-5 gap-3 items-center'>
+                     <img data-reference='no-reference' className='w-14 rounded-full h-10 bg-cover ' src={user?.photoURL} alt={user.displayName} />
+                     <button onClick={handleLogOut} className='btn btn-error btn-sm'>Logout <IoIosLogOut></IoIosLogOut> </button>
+                  </div>:<div className="flex items-center gap-5">
+                  <Link to={'/register'}>
+                  <button className='underline hover:bg-green-200/60 hover:rounded-lg px-3 py-2'>Register</button>
+                  </Link>
+               <Link to={'/login'}>
+               <button className='btn bg-green-300'>Login</button>
+               </Link>
+                </div>
+                }
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">E-Blogs 
@@ -47,14 +69,19 @@ const Navbar = () => {
      }
           </ul>
         </div>
-        <div className="navbar-end gap-5">
-          <Link to={'/register'}>
-          <button className='underline hover:bg-green-200/60 hover:rounded-lg px-3 py-2'>Register</button>
-          </Link>
-       <Link to={'/login'}>
-       <button className='btn bg-green-300'>Login</button>
-       </Link>
-        </div>
+{
+  user? <div className='navbar-end gap-5 items-center md:flex hidden'>
+    <img data-reference='no-reference' className='w-14 rounded-full h-12 bg-cover ' src={user?.photoURL} alt={user.displayName} />
+    <button onClick={handleLogOut} className='btn border-none bg-red-500/70'>Logout <IoIosLogOut className='text-xl'></IoIosLogOut></button>
+  </div>:        <div className="navbar-end md:flex hidden  gap-5">
+  <Link to={'/register'}>
+  <button className='underline hover:bg-green-200/60 hover:rounded-lg px-3 py-2'>Register</button>
+  </Link>
+<Link to={'/login'}>
+<button className='btn bg-green-300'>Login</button>
+</Link>
+</div>
+}
       </div>
     );
 };
