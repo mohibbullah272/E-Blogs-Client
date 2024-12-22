@@ -52,7 +52,7 @@ const [blogs,setBlogs]=useState([])
 </label>
             </div>
             <div>
-                <button onClick={handleReset} className="btn">Reset</button>
+                <button onClick={handleReset} className="btn border-none bg-[#e2dcd6]">Reset</button>
             </div>
           </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 p-5">

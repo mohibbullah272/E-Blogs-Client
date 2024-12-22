@@ -25,8 +25,8 @@ const BlogsCard = ({blog}) => {
     <p>{shortDes}</p>
     <p >Category: <span className="font-semibold">{category}</span></p>
     <div className="card-actions justify-between">
-      <button className="btn bg-green-500/30 text-gray-700">details <FaArrowRight></FaArrowRight></button>
-      <button className="btn bg-green-500/30 text-gray-700">Add to wishList</button>
+      <button className="btn bg-[#a57c56] text-gray-200">details <FaArrowRight></FaArrowRight></button>
+      <button className="btn btn-outline">Add to wishList</button>
     </div>
   </div>
 </div>

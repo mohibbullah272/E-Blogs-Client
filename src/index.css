@@ -9,11 +9,18 @@ body{
     font-family: "Raleway", serif;
     font-optical-sizing: auto;
     background: rgb(181,201,184);
-    background: linear-gradient(196deg, rgba(181,201,184,1) 33%, rgba(96,130,113,0.4137931034482759) 52%);
+    background: #f5f5f5;
+    color: #4a4a4a;
 }
 a.active{
-    background-color: rgba(187, 247, 208, 0.6);
+    background-color: #857c6b;
     font-style: italic;
+    color: #f5deb3;
     border-radius: 10%;
 }
 
+/* 
+Background: Warm beige (#f5f5f5)
+Text: Charcoal gray (#4a4a4a)
+Links: Medium brown (#8e735b)
+*/

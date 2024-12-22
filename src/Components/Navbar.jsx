@@ -49,10 +49,10 @@ const Navbar = () => {
                      <button onClick={handleLogOut} className='btn btn-error btn-sm'>Logout <IoIosLogOut></IoIosLogOut> </button>
                   </div>:<div className="flex items-center gap-5">
                   <Link to={'/register'}>
-                  <button className='underline hover:bg-green-200/60 hover:rounded-lg px-3 py-2'>Register</button>
+                  <button className='underline hover:bg-[#a88c71] hover:rounded-lg px-3 py-2'>Register</button>
                   </Link>
                <Link to={'/login'}>
-               <button className='btn border-none bg-green-300/70'>Login</button>
+               <button className='btn border-none bg-[#a88c71]'>Login</button>
                </Link>
                 </div>
                 }
@@ -75,10 +75,10 @@ const Navbar = () => {
     <button onClick={handleLogOut} className='btn border-none bg-red-500/70'>Logout <IoIosLogOut className='text-xl'></IoIosLogOut></button>
   </div>:        <div className="navbar-end md:flex hidden  gap-5">
   <Link to={'/register'}>
-  <button className='underline hover:bg-green-200/60 hover:rounded-lg px-3 py-2'>Register</button>
+  <button className='underline hover:bg-[#a88c71] hover:rounded-lg px-3 py-2'>Register</button>
   </Link>
 <Link to={'/login'}>
-<button className='btn bg-green-300/70 border-none'>Login</button>
+<button className='btn bg-[#a88c71] border-none'>Login</button>
 </Link>
 </div>
 }

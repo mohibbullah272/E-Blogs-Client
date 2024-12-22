@@ -8,6 +8,7 @@ import WishList from "../Page/WishList";
 import Login from "../Page/Login";
 import Register from "../Page/Register";
 import PrivetRoute from "./PrivetRoute";
+import ErrorPage from "../Page/ErrorPage";
 
 
 
@@ -15,6 +16,7 @@ const router =createBrowserRouter([
     {
         path:'/',
         element:<MainLayout></MainLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
