@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Select from 'react-select'
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import axios from 'axios';
 const AddBlog = () => {
     const options = [
         { value: 'Tech', label: 'Tech & Development' },
@@ -8,6 +10,7 @@ const AddBlog = () => {
         { value: 'Business ', label: 'Business ' },
         { value: 'Travel ', label: 'Travel & Adventure ' }
       ]
+      const {user}=useContext(AuthContext)
       const [category,setCategory]=useState('')
      const handleSubmit =(e)=>{
         e.preventDefault()
@@ -16,7 +19,19 @@ const AddBlog = () => {
         const shortDes = form.shortDes.value 
         const longDes = form.longDes.value 
         const photo = form.photo.value 
-        console.table({title,shortDes,longDes,photo,category})
+        const blogData={title,shortDes,longDes,photo,category , owner:{
+          email:user?.email,
+          name:user?.displayName,
+          photo:user?.photoURL
+        }}
+console.log(blogData)
+axios.post('http://localhost:6500/addBlog',blogData)
+.then(res=> {
+ if(res.data.insertedId){
+  console.log(res.data)
+  form.reset()
+ }
+})
      }
     return (
         <div className=' md:p-10 p-5'>
@@ -48,7 +63,7 @@ const AddBlog = () => {
           <label className="label">
             <span className="label-text">Category</span>
           </label>
-         <Select  options={options}
+         <Select required  options={options}
          onChange={(e)=>setCategory(e.value)}
          ></Select>
         </div>
