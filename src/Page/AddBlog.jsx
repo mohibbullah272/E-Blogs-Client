@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import Select from 'react-select'
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 const AddBlog = () => {
     const options = [
         { value: 'Tech', label: 'Tech & Development' },
@@ -28,7 +29,7 @@ console.log(blogData)
 axios.post('http://localhost:6500/addBlog',blogData)
 .then(res=> {
  if(res.data.insertedId){
-  console.log(res.data)
+ toast.success('your blog uploaded successfully')
   form.reset()
  }
 })

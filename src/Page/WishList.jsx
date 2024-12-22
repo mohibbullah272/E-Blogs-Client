@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import axios from 'axios';
 import { FaTrashAlt } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const WishList = () => {
     const {user}=useContext(AuthContext)
@@ -17,6 +18,7 @@ setWishLists(data)
         axios.delete(`http://localhost:6500/wishList/${id}`)
         .then(res=> {
             console.log(res.data)
+            toast.success('successfully deleted')
             const remaining =wishLists.filter(list => list._id !== id)
             setWishLists(remaining)
         })

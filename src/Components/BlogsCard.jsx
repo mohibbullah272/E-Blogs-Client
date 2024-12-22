@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 
 const BlogsCard = ({blog}) => {
@@ -12,7 +13,7 @@ const BlogsCard = ({blog}) => {
       blogId:_id,title,category,photo,email:user?.email,shortDes
     }
     axios.post('http://localhost:6500/add-wishList',wishListData)
-    .then(res => console.log(res.data))
+    .then(res => toast.success('blog successfully added to wishlist'))
     }
     return (
         <div className="card card-compact bg-base-100  shadow-xl">

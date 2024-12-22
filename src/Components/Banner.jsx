@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
     return (
         <div>
@@ -21,6 +23,9 @@ const Banner = () => {
                     <p className="text-center text-white/70">
                         Stay connected with live updates and notifications
                     </p>
+                 <Link to={'/allBlog'}>
+                 <button className="btn border-none bg-[#857c6b] text-gray-100/60 mt-5">Explore more</button>
+                 </Link>
                 </div>
             </div>
         </div>
