@@ -12,6 +12,10 @@ const [blogs,setBlogs]=useState([])
  axios.get(`http://localhost:6500/all-blogs?filter=${filter}&search=${search}`)
 .then(res=> setBlogs(res.data))
   },[filter,search])
+  const handleReset=()=>{
+    setFilter('')
+    setSearch('')
+  }
     return (
         <div>
           <div className="flex flex-wrap  gap-3 justify-center items-center">
@@ -27,14 +31,14 @@ const [blogs,setBlogs]=useState([])
         <option value="" disabled>Filter by category</option>
         <option value="Travel ">Travel </option>
         <option value="Lifestyle">Lifestyle</option>
+        <option value="Tech">Tech & Development </option>
+        <option value="Entertainment ">Entertainment </option>
         <option value="Business ">Business </option>
-        <option value="Entertainment  ">Entertainment  </option>
-        <option value="iBusiness ">Business </option>
       </select>
     </div>
             <div className="w-1/2">
             <label className="input input-bordered flex items-center  gap-2">
-  <input onChange={(e)=>setSearch(e.target.value)} type="text" className="grow" placeholder="Search" />
+  <input  onChange={(e)=>setSearch(e.target.value)} type="text" className="grow" placeholder="Search" />
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
@@ -48,7 +52,7 @@ const [blogs,setBlogs]=useState([])
 </label>
             </div>
             <div>
-                <button className="btn">Reset</button>
+                <button onClick={handleReset} className="btn">Reset</button>
             </div>
           </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 p-10">
