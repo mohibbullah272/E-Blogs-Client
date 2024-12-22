@@ -1,8 +1,19 @@
+import { useContext } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import axios from "axios";
 
 
 const BlogsCard = ({blog}) => {
-    const {title,category,photo,owner,shortDes}=blog || {}
+    const {_id,title,category,photo,owner,shortDes}=blog || {}
+    const {user}=useContext(AuthContext)
+    const handleWishList=()=>{
+    const wishListData = {
+      blogId:_id,title,category,photo,email:user?.email,shortDes
+    }
+    axios.post('http://localhost:6500/add-wishList',wishListData)
+    .then(res => console.log(res.data))
+    }
     return (
         <div className="card card-compact bg-base-100  shadow-xl">
   <figure>
@@ -26,7 +37,7 @@ const BlogsCard = ({blog}) => {
     <p >Category: <span className="font-semibold">{category}</span></p>
     <div className="card-actions justify-between">
       <button className="btn bg-[#a57c56] text-gray-200">details <FaArrowRight></FaArrowRight></button>
-      <button className="btn btn-outline">Add to wishList</button>
+      <button onClick={handleWishList} className="btn btn-outline">Add to wishList</button>
     </div>
   </div>
 </div>
