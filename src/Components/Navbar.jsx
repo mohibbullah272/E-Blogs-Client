@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-
+import { Link, NavLink } from 'react-router-dom';
+import { IoNewspaperOutline } from "react-icons/io5";
 const Navbar = () => {
     const links=<>
     <NavLink className='p-2 font-semibold '  to={'/'}>Home</NavLink>
@@ -36,7 +36,9 @@ const Navbar = () => {
              }
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">E-Blogs</a>
+          <a className="btn btn-ghost text-xl">E-Blogs 
+          <IoNewspaperOutline />
+          </a>
         </div>
         <div className="navbar-center  hidden lg:flex">
           <ul className="menu menu-horizontal gap-5 px-1">
@@ -46,8 +48,12 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-5">
+          <Link to={'/register'}>
           <button className='underline hover:bg-green-200/60 hover:rounded-lg px-3 py-2'>Register</button>
-          <button className='btn bg-green-300'>Login</button>
+          </Link>
+       <Link to={'/login'}>
+       <button className='btn bg-green-300'>Login</button>
+       </Link>
         </div>
       </div>
     );

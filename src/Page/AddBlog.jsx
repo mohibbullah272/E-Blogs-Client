@@ -59,7 +59,7 @@ const AddBlog = () => {
           </label>
           <input type="text" name='photo' placeholder="photo url" className="input input-bordered" required />
         </div>
-        <input type="submit" value="Submit"  className='btn btn-block mt-5 bg-green-900/50'/>
+        <input type="submit" value="Submit"  className='btn btn-block mt-5 bg-green-500/50'/>
            </form>
         </div>
     );
