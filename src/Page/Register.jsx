@@ -3,6 +3,7 @@ import registerLottie from '../assets/RegisterLottie.json'
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
 const Register = () => {
     const {registerWithGoogle,signUpWithEmail,updateAuthData}=useContext(AuthContext)
     const [showPass,setShowPass]=useState(false)
@@ -73,6 +74,7 @@ signUpWithEmail(email,password)
         <div className='  flex justify-center text-center mx-auto'>
 <button onClick={handleGoogleRegister} className='flex gap-2 items-center btn btn-outline w-full text-center'><FaGoogle></FaGoogle> Register with google</button>
             </div>
+            <p>Already have an account ? <Link className='underline' to={'/login'}>Login</Link></p>
       </form>
     </div>
         </div>

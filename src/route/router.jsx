@@ -7,6 +7,7 @@ import FeatureBlog from "../Page/FeatureBlog";
 import WishList from "../Page/WishList";
 import Login from "../Page/Login";
 import Register from "../Page/Register";
+import PrivetRoute from "./PrivetRoute";
 
 
 
@@ -21,7 +22,9 @@ const router =createBrowserRouter([
             },
             {
                path:'addBlog' ,
-               element:<AddBlog></AddBlog>
+               element:<PrivetRoute>
+                <AddBlog></AddBlog>
+               </PrivetRoute>
             },
             {
                 path:'allBlog',
@@ -33,7 +36,9 @@ const router =createBrowserRouter([
             },
             {
                 path:'wishList',
-                element:<WishList></WishList>
+                element:<PrivetRoute>
+                    <WishList></WishList>
+                </PrivetRoute>
             },
             {
                 path:'login',

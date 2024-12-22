@@ -4,10 +4,19 @@ import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import loginLottie from '../assets/loginLottie.json'
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
-  const {loginWithEmail}=useContext(AuthContext)
+  const {loginWithEmail,registerWithGoogle}=useContext(AuthContext)
      const [showPass,setShowPass]=useState(false)
-
+const location = useLocation()
+const navigate = useNavigate()
+const handleGoogleRegister=()=>{
+  registerWithGoogle()
+  .then((result)=>{
+    console.log(result.user)
+    navigate(location.state?location?.state:'/')
+  })
+}
      const handleSubmit=(e)=>{
       e.preventDefault()
       const form = e.target 
@@ -17,6 +26,7 @@ const Login = () => {
       loginWithEmail(email,password)
       .then((result)=>{
         console.log(result.user)
+        navigate(location.state?location?.state:'/')
       })
      }
     return (
@@ -48,8 +58,9 @@ const Login = () => {
         </div>
         <div className='divider'>Or</div>
         <div className='  flex justify-center text-center mx-auto'>
-<button className='flex gap-2 items-center btn btn-outline w-full text-center'><FaGoogle></FaGoogle> login with google</button>
+<button onClick={handleGoogleRegister} className='flex gap-2 items-center btn btn-outline w-full text-center'><FaGoogle></FaGoogle> login with google</button>
             </div>
+            <p>didn't have an account ? <Link className='underline' to={'/register'}>Register</Link></p>
       </form>
     </div>
         </div>
