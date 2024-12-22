@@ -20,7 +20,7 @@ const Navbar = () => {
       })
     }
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -52,7 +52,7 @@ const Navbar = () => {
                   <button className='underline hover:bg-green-200/60 hover:rounded-lg px-3 py-2'>Register</button>
                   </Link>
                <Link to={'/login'}>
-               <button className='btn bg-green-300'>Login</button>
+               <button className='btn border-none bg-green-300/70'>Login</button>
                </Link>
                 </div>
                 }
@@ -78,7 +78,7 @@ const Navbar = () => {
   <button className='underline hover:bg-green-200/60 hover:rounded-lg px-3 py-2'>Register</button>
   </Link>
 <Link to={'/login'}>
-<button className='btn bg-green-300'>Login</button>
+<button className='btn bg-green-300/70 border-none'>Login</button>
 </Link>
 </div>
 }

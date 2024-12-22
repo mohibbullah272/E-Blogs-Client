@@ -74,7 +74,7 @@ axios.post('http://localhost:6500/addBlog',blogData)
           </label>
           <input type="text" name='photo' placeholder="photo url" className="input input-bordered" required />
         </div>
-        <input type="submit" value="Submit"  className='btn btn-block mt-5 bg-green-500/50'/>
+        <input type="submit" value="Submit"  className='btn btn-block mt-5 border-none bg-green-500/30'/>
            </form>
         </div>
     );

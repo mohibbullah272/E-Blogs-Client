@@ -8,6 +8,8 @@ body{
     padding: 0;
     font-family: "Raleway", serif;
     font-optical-sizing: auto;
+    background: rgb(181,201,184);
+    background: linear-gradient(196deg, rgba(181,201,184,1) 33%, rgba(96,130,113,0.4137931034482759) 52%);
 }
 a.active{
     background-color: rgba(187, 247, 208, 0.6);
