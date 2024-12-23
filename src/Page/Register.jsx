@@ -3,14 +3,16 @@ import registerLottie from '../assets/RegisterLottie.json'
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Register = () => {
     const {registerWithGoogle,signUpWithEmail,updateAuthData}=useContext(AuthContext)
     const [showPass,setShowPass]=useState(false)
+    const navigate = useNavigate()
 const handleGoogleRegister=()=>{
 registerWithGoogle()
 .then(result=> {
     console.log(result.user)
+    navigate('/')
 })
 .catch(err=> console.log(err))
 }
@@ -28,6 +30,7 @@ signUpWithEmail(email,password)
   .then(()=>{
     console.log('profile updated')
   })
+  navigate('/')
 })
 .catch(err=> console.log(err))
     }

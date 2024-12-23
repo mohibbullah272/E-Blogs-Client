@@ -6,7 +6,7 @@ import LoadingPage from "../Page/LoadingPage";
 
 const PrivetRoute = ({children}) => {
     const {user,loading}=useContext(AuthContext)
-    const location = useLocation()
+   
     if(loading){
         return <LoadingPage></LoadingPage>
     }
@@ -14,7 +14,7 @@ const PrivetRoute = ({children}) => {
         return children
     }
     return (
-    <Navigate state={location.pathname} to={'/login'}></Navigate>
+    <Navigate to={'/login'}></Navigate>
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaComment } from 'react-icons/fa';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
@@ -8,6 +8,14 @@ const Details = () => {
     const {id} = useParams()
     const {user}=useContext(AuthContext)
     const blog = useLoaderData()
+    const [comments,setComments]=useState([])
+    useEffect(()=>{
+fetchComment()
+    },[])
+    const fetchComment=async()=>{
+        const {data}=await axios.get(`http://localhost:6500/comment?blogId=${id}`)
+        setComments(data)
+    }
     const handleComment=(e)=>{
         e.preventDefault()
         const form = e.target
@@ -16,7 +24,13 @@ const Details = () => {
         comment,photo:user?.photoURL,name:user?.displayName,blogId:id
        }
       axios.post('http://localhost:6500/add-comment',commentData)
-      .then(res=> console.log(res.data))
+      .then(res=> {
+        if(res.data.insertedId){
+            setComments((prevComments) => [...prevComments, commentData]);
+        }
+      })
+      form.reset()
+   
     }
     return (
         <div className='p-5'>
@@ -34,13 +48,16 @@ const Details = () => {
            <div>
             <h4 className='flex text-xl items-center gap-2'>Comments <FaComment></FaComment></h4>
            </div>
-           <div>
+           <div className='space-y-3 my-4'>
             {/* comments will appear here */}
-            <p> Lorem ipsum dolor sit amet.</p>
-            <p> Lorem ipsum dolor sit amet.</p>
-            <p> Lorem ipsum dolor sit amet.</p>
-            <p> Lorem ipsum dolor sit amet.</p>
-            <p> Lorem ipsum dolor sit amet.</p>
+         {
+            comments.map((comment,idx)=><div key={idx}>
+             <div className='flex gap-2 items-center'>
+                <img className='w-10 h-10 rounded-full bg-cover' data-reference="no-reference" src={comment?.photo}  />
+                <p>{comment?.comment}</p>
+             </div>
+            </div>)
+         }
            </div>
            <div className="my-2 ">
   <form onSubmit={handleComment} className="relative w-full max-w-sm">

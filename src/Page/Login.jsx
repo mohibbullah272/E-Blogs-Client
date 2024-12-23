@@ -8,13 +8,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
   const {loginWithEmail,registerWithGoogle}=useContext(AuthContext)
      const [showPass,setShowPass]=useState(false)
-const location = useLocation()
 const navigate = useNavigate()
 const handleGoogleRegister=()=>{
   registerWithGoogle()
   .then((result)=>{
     console.log(result.user)
-    navigate(location.state?location?.state:'/')
+    navigate('/')
   })
 }
      const handleSubmit=(e)=>{
@@ -26,7 +25,7 @@ const handleGoogleRegister=()=>{
       loginWithEmail(email,password)
       .then((result)=>{
         console.log(result.user)
-        navigate(location.state?location?.state:'/')
+        navigate('/')
       })
      }
     return (
