@@ -58,9 +58,11 @@ const Navbar = () => {
                 }
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">E-Blogs 
+        <Link to={'/'}>
+        <p className="btn btn-ghost text-xl">E-Blogs 
           <IoNewspaperOutline />
-          </a>
+          </p>
+        </Link>
         </div>
         <div className="navbar-center  hidden lg:flex">
           <ul className="menu menu-horizontal gap-5 px-1">

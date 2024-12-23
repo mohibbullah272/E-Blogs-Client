@@ -9,6 +9,8 @@ import Login from "../Page/Login";
 import Register from "../Page/Register";
 import PrivetRoute from "./PrivetRoute";
 import ErrorPage from "../Page/ErrorPage";
+import Details from "../Page/Details";
+import axios from "axios";
 
 
 
@@ -49,6 +51,13 @@ const router =createBrowserRouter([
             {
                 path:'register',
                 element:<Register></Register>
+            },
+            {
+                path:'details/:id',
+                element:<PrivetRoute>
+                    <Details></Details>
+                </PrivetRoute>,
+                loader:({params})=>fetch(`http://localhost:6500/details/${params.id}`)
             }
         ]
     }

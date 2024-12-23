@@ -17,8 +17,8 @@ const NewsLatter = () => {
             Subscribe now <br /> to stay inspired and informed</h3>
      <div className="md:w-1/2 p-2 mx-auto">
      <label className="input input-bordered flex items-center gap-2">
-  <input type="text" className="grow" placeholder="Your Email address" />
-  <span className="px-5 py-2 rounded-3xl bg-[#857c6b]">Subscribe</span>
+  <input type="text" className="grow text-black" placeholder="Your Email address" />
+  <span className="px-5 py-2 hover:bg-slate-500/50 rounded-3xl bg-[#857c6b]">Subscribe</span>
 </label>
      </div>
            </div>

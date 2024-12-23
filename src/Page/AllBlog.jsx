@@ -2,19 +2,31 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { AiOutlineControl } from "react-icons/ai";
 import BlogsCard from "../Components/BlogsCard";
+import LoadingPage from "./LoadingPage";
 
 const AllBlog = () => {
   const [filter,setFilter]=useState('')
   const [search,setSearch]=useState('')
-  console.log(filter,search)
 const [blogs,setBlogs]=useState([])
+const [loading,setLoading]=useState(true)
   useEffect(()=>{
- axios.get(`http://localhost:6500/all-blogs?filter=${filter}&search=${search}`)
-.then(res=> setBlogs(res.data))
+    setLoading(true)
+try{
+  axios.get(`http://localhost:6500/all-blogs?filter=${filter}&search=${search}`)
+  .then(res=> setBlogs(res.data))
+}catch(err){
+  console.log(err)
+}
+finally{
+  setLoading(false)
+}
   },[filter,search])
   const handleReset=()=>{
     setFilter('')
     setSearch('')
+  }
+  if(loading){
+    return <LoadingPage></LoadingPage>
   }
     return (
         <div>

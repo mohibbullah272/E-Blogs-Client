@@ -3,7 +3,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const BlogsCard = ({blog}) => {
@@ -39,7 +39,9 @@ const BlogsCard = ({blog}) => {
     <p>{shortDes}</p>
     <p >Category: <span className="font-semibold">{category}</span></p>
     <div className="card-actions justify-between">
-      <button className="btn bg-[#a57c56] text-gray-200">details <FaArrowRight></FaArrowRight></button>
+     <Link to={`/details/${_id}`}>
+     <button className="btn bg-[#a57c56] text-gray-200">details <FaArrowRight></FaArrowRight></button>
+     </Link>
       <button onClick={()=>user?handleWishList():navigate('/login')} className="btn btn-outline">Add to wishList</button>
     </div>
   </div>

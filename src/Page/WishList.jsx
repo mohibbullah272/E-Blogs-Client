@@ -24,7 +24,7 @@ setWishLists(data)
         })
     }
     return (
-        <div>
+        <div className='my-10'>
                <div className="overflow-x-auto mt-10">
         <table className="table">
           <thead>
