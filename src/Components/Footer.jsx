@@ -2,7 +2,7 @@ import React from 'react';
 import { IoNewspaperOutline } from "react-icons/io5";
 const Footer = () => {
     return (
-        <div  className='bg-black/90 text-white rounded-t-lg'>
+        <div  className='bg-black/90 text-white rounded-t-xl'>
             <div className='p-5 text-center'>
                 <h3 className='text-2xl py-2'>Lets get started with something great</h3>
                 <p>join us over 400 blogs post daily</p>
@@ -55,7 +55,7 @@ const Footer = () => {
           <hr  className='my-3'/>
             <div className='flex justify-between p-5'>
                 <p className='flex items-center gap-2 text-2xl'><IoNewspaperOutline className='text-white text-2xl'></IoNewspaperOutline> E-Blogs</p>
-                <p>2024 E-Blogs All Right Reserved</p>
+                <p>© 2024  E-Blogs All Rights Reserved</p>
             </div>
         </div>
     );

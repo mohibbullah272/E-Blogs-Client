@@ -3,11 +3,13 @@ import { FaArrowRight } from "react-icons/fa";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 
 const BlogsCard = ({blog}) => {
     const {_id,title,category,photo,owner,shortDes}=blog || {}
     const {user}=useContext(AuthContext)
+    const navigate = useNavigate()
     const handleWishList=()=>{
     const wishListData = {
       blogId:_id,title,category,photo,email:user?.email,shortDes
@@ -26,7 +28,7 @@ const BlogsCard = ({blog}) => {
   <div className="card-body">
     <div className="flex gap-2 items-center py-3">
 <div>
-    <img className="w-14 rounded-full h-12" src={owner?.photo} alt="" />
+    <img data-reference='no-reference' className="w-14 rounded-full bg-cover h-12" src={owner?.photo} alt="" />
 </div>
 <div>
     <p>{owner?.name}</p>
@@ -38,7 +40,7 @@ const BlogsCard = ({blog}) => {
     <p >Category: <span className="font-semibold">{category}</span></p>
     <div className="card-actions justify-between">
       <button className="btn bg-[#a57c56] text-gray-200">details <FaArrowRight></FaArrowRight></button>
-      <button onClick={handleWishList} className="btn btn-outline">Add to wishList</button>
+      <button onClick={()=>user?handleWishList():navigate('/login')} className="btn btn-outline">Add to wishList</button>
     </div>
   </div>
 </div>

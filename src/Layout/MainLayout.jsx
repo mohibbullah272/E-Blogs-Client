@@ -4,6 +4,7 @@ import Footer from "../Components/Footer";
 
 
 const MainLayout = () => {
+ 
     return (
         <div className="max-w-7xl mx-auto">
           <header>
@@ -12,7 +13,7 @@ const MainLayout = () => {
           <main>
             <Outlet></Outlet>
           </main>
-          <footer className="mt-24">
+          <footer>
 <Footer></Footer>
           </footer>
         </div>

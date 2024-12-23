@@ -4,7 +4,7 @@ const PopularBlog = () => {
         <div>
             <h3 className="text-3xl ">Popular Blogs,,,</h3>
 <div className="md:flex gap-5 shadow-xl rounded-xl p-10">
-<div className=" w-1/2 p-2 ">
+<div className=" md:w-1/2 p-2 ">
     <img className="w-full mx-auto h-[300px] rounded-xl " src="https://images.pexels.com/photos/6033962/pexels-photo-6033962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
     <h3 className="text-gray-950 mt-5 text-xl font-semibold">Exploring the Hidden Gems of Iceland</h3>
     <p className="text-gray-500">Take a virtual journey through Iceland's breathtaking landscapes and secret spots</p>

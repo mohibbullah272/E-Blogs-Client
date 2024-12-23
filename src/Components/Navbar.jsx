@@ -71,7 +71,7 @@ const Navbar = () => {
         </div>
 {
   user? <div className='navbar-end gap-5 items-center md:flex hidden'>
-    <img data-reference='no-reference' className='w-14 rounded-full h-12 bg-cover ' src={user?.photoURL} alt={user.displayName} />
+    <img data-reference='no-reference' className='w-12 rounded-full h-12 bg-cover ' src={user?.photoURL} alt={user.displayName} />
     <button onClick={handleLogOut} className='btn border-none bg-red-500/70'>Logout <IoIosLogOut className='text-xl'></IoIosLogOut></button>
   </div>:        <div className="navbar-end md:flex hidden  gap-5">
   <Link to={'/register'}>
