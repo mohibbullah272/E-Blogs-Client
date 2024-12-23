@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { FaComment } from 'react-icons/fa';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import axios from 'axios';
-
+import { FaRegFrownOpen } from "react-icons/fa";
+import { BiSolidError } from "react-icons/bi";
 const Details = () => {
     const {id} = useParams()
     const {user}=useContext(AuthContext)
@@ -45,11 +46,19 @@ fetchComment()
             <p className='text-gray-500'>{blog.shortDes}</p>
             <p className='text-gray-500'>{blog.longDes}</p>
            </div>
+           <div className='my-4'>
+            {
+                user?.email === blog?.owner?.email && <Link to={`/updateBlog/${id}`}>
+                <button className='btn btn-neutral'>Update Blog</button>
+                </Link>
+            }
+           </div>
            <div>
             <h4 className='flex text-xl items-center gap-2'>Comments <FaComment></FaComment></h4>
            </div>
-           <div className='space-y-3 my-4'>
-            {/* comments will appear here */}
+          {
+            comments.length <= 0 ? <p className='flex gap-2 items-center'>No comments yet to show ! <FaRegFrownOpen /></p>: <div className='space-y-3 my-4'>
+           
          {
             comments.map((comment,idx)=><div key={idx}>
              <div className='flex gap-2 items-center'>
@@ -59,20 +68,23 @@ fetchComment()
             </div>)
          }
            </div>
-           <div className="my-2 ">
-  <form onSubmit={handleComment} className="relative w-full max-w-sm">
-    <textarea
-      name="comment"
-      className="textarea textarea-bordered w-full"
-      placeholder="put your valuable comment hare"
-    ></textarea>
-    <input
-      type="submit"
-      className="btn border-none bg-stone-500/70 text-gray-900 absolute bottom-2 right-2"
-      value="Submit"
-    />
-  </form>
-</div>
+          }
+{
+    user.email===blog.owner.email?<p className='flex items-center gap-2 text-xl font-bold text-red-600'> <BiSolidError />You can't comment on  own blogs</p>:           <div className="my-2 ">
+    <form onSubmit={handleComment} className="relative w-full max-w-sm">
+      <textarea
+        name="comment"
+        className="textarea textarea-bordered w-full"
+        placeholder="put your valuable comment hare"
+      ></textarea>
+      <input
+        type="submit"
+        className="btn border-none bg-stone-500/70 text-gray-900 absolute bottom-2 right-2"
+        value="Submit"
+      />
+    </form>
+  </div>
+}
 
 
      </div>

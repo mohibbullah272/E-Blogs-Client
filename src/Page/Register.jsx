@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Register = () => {
     const {registerWithGoogle,signUpWithEmail,updateAuthData}=useContext(AuthContext)
     const [showPass,setShowPass]=useState(false)
-    const navigate = useNavigate()
+    const navigate =useNavigate()
 const handleGoogleRegister=()=>{
 registerWithGoogle()
 .then(result=> {
@@ -27,12 +27,13 @@ signUpWithEmail(email,password)
 .then(result=>{
   console.log(result.user)
   updateAuthData(username,photo)
-  .then(()=>{
-    console.log('profile updated')
-  })
-  navigate('/')
+    .then(()=>{
+      console.log('profile updated')
+      navigate('/')
+    })
+  
+    .catch(err=> console.log(err))
 })
-.catch(err=> console.log(err))
     }
     return (
         <div className='flex md:flex-row-reverse flex-col'>

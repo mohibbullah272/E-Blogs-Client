@@ -11,6 +11,7 @@ import PrivetRoute from "./PrivetRoute";
 import ErrorPage from "../Page/ErrorPage";
 import Details from "../Page/Details";
 import axios from "axios";
+import UpdateBlog from "../Page/UpdateBlog";
 
 
 
@@ -56,6 +57,13 @@ const router =createBrowserRouter([
                 path:'details/:id',
                 element:<PrivetRoute>
                     <Details></Details>
+                </PrivetRoute>,
+                loader:({params})=>fetch(`http://localhost:6500/details/${params.id}`)
+            },
+            {
+                path:'updateBlog/:id',
+                element:<PrivetRoute>
+                <UpdateBlog></UpdateBlog>
                 </PrivetRoute>,
                 loader:({params})=>fetch(`http://localhost:6500/details/${params.id}`)
             }
