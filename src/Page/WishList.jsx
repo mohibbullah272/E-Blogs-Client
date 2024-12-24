@@ -3,6 +3,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import axios from 'axios';
 import { FaTrashAlt } from 'react-icons/fa';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const WishList = () => {
     const {user}=useContext(AuthContext)
@@ -58,7 +59,9 @@ setWishLists(data)
                 </td>
                 <td>
 <div className='flex gap-5 items-center'>
+    <Link to={`/details/${list.blogId}`}>
     <button className='btn btn-xs bg-[#857c6b] text-[#f5deb3]'>Details </button>
+    </Link>
     <button onClick={()=> handleRemove(list._id)}><FaTrashAlt className='text-xl'></FaTrashAlt></button>
 </div>
 
