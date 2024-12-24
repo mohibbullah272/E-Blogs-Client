@@ -1,7 +1,9 @@
-
+import { motion, useScroll, useTransform } from "framer-motion";
 const PopularBlog = () => {
+    const { scrollYProgress } = useScroll();
+    const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
     return (
-        <div>
+        <motion.div    style={{ opacity }}>
             <h3 className="text-3xl ">Popular Blogs,,,</h3>
 <div className="md:flex gap-5 shadow-xl rounded-xl p-10">
 <div className=" md:w-1/2 p-2 ">
@@ -40,7 +42,7 @@ const PopularBlog = () => {
 </div>
 </div>
 </div>
-        </div>
+        </motion.div>
     );
 };
 

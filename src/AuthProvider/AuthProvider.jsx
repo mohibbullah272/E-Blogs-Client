@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
@@ -40,7 +41,21 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth,(currentUser)=>{
       setUser(currentUser)
-      setLoading(false)
+      if(currentUser?.email){
+        const user = {email:currentUser?.email}
+        axios.post(`https://e-blogs-server.vercel.app/jwt`,user,{withCredentials:true})
+        .then(res=> {
+          setLoading(false)
+
+        })
+      }
+      else{
+        axios.post('https://e-blogs-server.vercel.app/logOut',{},{withCredentials:true})
+        .then(res=>{
+          // console.log(res.data)
+          setLoading(false)
+        })
+      }
      
     });
     return ()=> unsubscribe()

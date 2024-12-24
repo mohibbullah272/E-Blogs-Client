@@ -25,8 +25,7 @@ const AddBlog = () => {
           name:user?.displayName,
           photo:user?.photoURL
         }}
-console.log(blogData)
-axios.post('http://localhost:6500/addBlog',blogData)
+axios.post('https://e-blogs-server.vercel.app/addBlog',blogData,{withCredentials:true})
 .then(res=> {
  if(res.data.insertedId){
  toast.success('your blog uploaded successfully')

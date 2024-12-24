@@ -12,10 +12,10 @@ const [loading,setLoading]=useState(true)
   useEffect(()=>{
     setLoading(true)
 try{
-  axios.get(`http://localhost:6500/all-blogs?filter=${filter}&search=${search}`)
+  axios.get(`https://e-blogs-server.vercel.app/all-blogs?filter=${filter}&search=${search}`)
   .then(res=> setBlogs(res.data))
 }catch(err){
-  console.log(err)
+  // console.log(err)
 }
 finally{
   setLoading(false)

@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const Register = () => {
     const {registerWithGoogle,signUpWithEmail,updateAuthData}=useContext(AuthContext)
     const [showPass,setShowPass]=useState(false)
@@ -11,10 +12,10 @@ const Register = () => {
 const handleGoogleRegister=()=>{
 registerWithGoogle()
 .then(result=> {
-    console.log(result.user)
+  toast.success('successfully signUp complete')
     navigate('/')
 })
-.catch(err=> console.log(err))
+.catch(err=> toast.error('something went wrong'))
 }
     const handleSubmit=(e)=>{
 e.preventDefault()
@@ -23,16 +24,23 @@ const username = form.name.value
 const password = form.password.value 
 const photo = form.photo.value 
 const email = form.email.value 
+const regex =/^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{1,}$/
+if(password.length <6){
+  return toast.error('password should be 6 in character or more')
+}
+if(!regex.test(password)){
+  return toast.error('password must contain one uppercase one lowercase one special one numeric word')
+}
 signUpWithEmail(email,password)
 .then(result=>{
-  console.log(result.user)
+  toast.success('successfully signUp complete')
   updateAuthData(username,photo)
     .then(()=>{
-      console.log('profile updated')
+      // console.log('profile updated')
       navigate('/')
     })
   
-    .catch(err=> console.log(err))
+    .catch(err=> toast.error('something wrong'))
 })
     }
     return (

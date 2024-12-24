@@ -4,21 +4,27 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
-
+import { motion} from "motion/react";
 
 const BlogsCard = ({blog}) => {
     const {_id,title,category,photo,owner,shortDes}=blog || {}
+  
     const {user}=useContext(AuthContext)
     const navigate = useNavigate()
     const handleWishList=()=>{
     const wishListData = {
       blogId:_id,title,category,photo,email:user?.email,shortDes
     }
-    axios.post('http://localhost:6500/add-wishList',wishListData)
+    axios.post('https://e-blogs-server.vercel.app/add-wishList',wishListData)
     .then(res => toast.success('blog successfully added to wishlist'))
     }
     return (
-        <div className="card card-compact bg-base-100  shadow-xl">
+        <motion.div      initial={{ opacity: 0 }} // Start with 0 opacity (invisible)
+        animate={{ opacity: 1 }} // Animate to full opacity (visible)
+        transition={{
+          duration: 1, // Duration of the fade-in effect
+          ease: "easeOut", // Smooth easing function
+        }}  className="card card-compact bg-base-100  shadow-xl">
   <figure>
     <img
     className="w-full h-[300px]"
@@ -40,12 +46,13 @@ const BlogsCard = ({blog}) => {
     <p >Category: <span className="font-semibold">{category}</span></p>
     <div className="card-actions justify-between">
      <Link to={`/details/${_id}`}>
-     <button className="btn bg-[#a57c56] text-gray-200">details <FaArrowRight></FaArrowRight></button>
+     <motion.button  whileHover={{ scale: 1.1 }}
+  whileTap={{ scale: 0.95 }} className="btn bg-[#a57c56] text-gray-200">details <FaArrowRight></FaArrowRight></motion.button>
      </Link>
       <button onClick={()=>user?handleWishList():navigate('/login')} className="btn btn-outline">Add to wishList</button>
     </div>
   </div>
-</div>
+</motion.div>
     );
 };
 

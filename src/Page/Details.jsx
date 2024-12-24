@@ -5,16 +5,21 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import axios from 'axios';
 import { FaRegFrownOpen } from "react-icons/fa";
 import { BiSolidError } from "react-icons/bi";
+import { motion} from "framer-motion";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 const Details = () => {
     const {id} = useParams()
     const {user}=useContext(AuthContext)
     const blog = useLoaderData()
+    // console.log(blog)
+  
     const [comments,setComments]=useState([])
     useEffect(()=>{
 fetchComment()
     },[])
     const fetchComment=async()=>{
-        const {data}=await axios.get(`http://localhost:6500/comment?blogId=${id}`)
+        const {data}=await axios.get(`https://e-blogs-server.vercel.app/comment?blogId=${id}`)
         setComments(data)
     }
     const handleComment=(e)=>{
@@ -24,7 +29,7 @@ fetchComment()
        const commentData ={
         comment,photo:user?.photoURL,name:user?.displayName,blogId:id
        }
-      axios.post('http://localhost:6500/add-comment',commentData)
+      axios.post('https://e-blogs-server.vercel.app/add-comment',commentData)
       .then(res=> {
         if(res.data.insertedId){
             setComments((prevComments) => [...prevComments, commentData]);
@@ -34,21 +39,29 @@ fetchComment()
    
     }
     return (
-        <div className='p-5'>
+    <PhotoProvider>
+    <motion.div initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }} 
+        transition={{
+          duration: 1, 
+          ease: "easeOut", 
+        }} className='p-5'>
      
      <div className='border-2  md:w-1/2 mx-auto rounded-3xl p-2 bg-opacity-5'>
-            <img data-reference="no-reference"  className='w-full rounded-3xl mx-auto' src={blog?.photo} alt={blog.title} />
+          <PhotoView src={blog?.data?.photo}>
+          <img data-reference="no-reference"  className='w-full rounded-3xl mx-auto' src={blog.data?.photo} alt={blog.data.title} />
+          </PhotoView>
            </div>
            <div className='my-5'>
-            <p className='text-xl font-semibold'>{blog.title}</p>
-            <p className='font-semibold'>Author: {blog?.owner?.name}</p>
-            <p className='font-semibold'>Category :{blog.category}</p>
-            <p className='text-gray-500'>{blog.shortDes}</p>
-            <p className='text-gray-500'>{blog.longDes}</p>
+            <p className='text-xl font-semibold'>{blog.data.title}</p>
+            <p className='font-semibold'>Author: {blog?.data.owner?.name}</p>
+            <p className='font-semibold'>Category :{blog.data.category}</p>
+            <p className='text-gray-500'>{blog.data.shortDes}</p>
+            <p className='text-gray-500'>{blog.data.longDes}</p>
            </div>
            <div className='my-4'>
             {
-                user?.email === blog?.owner?.email && <Link to={`/updateBlog/${id}`}>
+                user?.email === blog.data?.owner?.email && <Link to={`/updateBlog/${id}`}>
                 <button className='btn btn-neutral flex items-center gap-2'>Update Blog <FaPen></FaPen></button>
                 </Link>
             }
@@ -63,6 +76,7 @@ fetchComment()
             comments.map((comment,idx)=><div key={idx}>
              <div className='flex gap-2 items-center'>
                 <img className='w-10 h-10 rounded-full bg-cover' data-reference="no-reference" src={comment?.photo}  />
+                <p className='font-semibold'>{comment?.name}.</p>
                 <p>{comment?.comment}</p>
              </div>
             </div>)
@@ -70,7 +84,7 @@ fetchComment()
            </div>
           }
 {
-    user.email===blog.owner.email?<p className='flex items-center gap-2 text-xl font-bold text-red-600'> <BiSolidError />You can't comment on  own blogs</p>:           <div className="my-2 ">
+    user?.email===blog.data?.owner?.email?<p className='flex items-center gap-2 text-xl font-bold text-red-600'> <BiSolidError />You can't comment on  own blogs</p>:           <div className="my-2 ">
     <form onSubmit={handleComment} className="relative w-full max-w-sm">
       <textarea
         name="comment"
@@ -87,7 +101,9 @@ fetchComment()
 }
 
 
-     </div>
+     </motion.div>
+
+    </PhotoProvider>
      
     );
 };

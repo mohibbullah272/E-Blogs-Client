@@ -58,14 +58,14 @@ const router =createBrowserRouter([
                 element:<PrivetRoute>
                     <Details></Details>
                 </PrivetRoute>,
-                loader:({params})=>fetch(`http://localhost:6500/details/${params.id}`)
+                loader:({params})=>axios.get(`https://e-blogs-server.vercel.app/details/${params.id}`,{withCredentials:true})
             },
             {
                 path:'updateBlog/:id',
                 element:<PrivetRoute>
                 <UpdateBlog></UpdateBlog>
                 </PrivetRoute>,
-                loader:({params})=>fetch(`http://localhost:6500/details/${params.id}`)
+                loader:({params})=>axios.get(`https://e-blogs-server.vercel.app/details/${params.id}`,{withCredentials:true})
             }
         ]
     }

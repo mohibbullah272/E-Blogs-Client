@@ -16,7 +16,7 @@ const Navbar = () => {
     const handleLogOut=()=>{
       logout()
       .then(()=>{
-        console.log('user get outed')
+        // console.log('user get outed')
       })
     }
     return (

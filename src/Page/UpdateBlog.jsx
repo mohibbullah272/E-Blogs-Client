@@ -6,7 +6,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 const UpdateBlog = () => {
     const blogData = useLoaderData()
-  const {_id,title,category:categories,shortDes,longDes,photo}=blogData ||{}
+  const {_id,title,category:categories,shortDes,longDes,photo}=blogData.data ||{}
   const navigate = useNavigate()
       const {user}=useContext(AuthContext)
       const [category,setCategory]=useState(categories)
@@ -22,7 +22,7 @@ const UpdateBlog = () => {
           name:user?.displayName,
           photo:user?.photoURL
         }}
-axios.patch(`http://localhost:6500/update-blog/${_id}`,blogData)
+axios.patch(`https://e-blogs-server.vercel.app/update-blog/${_id}`,blogData)
 .then(res=> {
   if(res.data.modifiedCount){
     navigate('/allBlog')

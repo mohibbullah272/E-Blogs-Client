@@ -1,12 +1,12 @@
-import { Outlet } from "react-router-dom";
+import { Outlet,  } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-
+import { motion } from "motion/react"
 
 const MainLayout = () => {
  
     return (
-        <div className="max-w-7xl mx-auto">
+        <motion.div  className="max-w-7xl mx-auto">
           <header>
           <Navbar></Navbar>
           </header>
@@ -16,7 +16,7 @@ const MainLayout = () => {
           <footer className="mt-24">
 <Footer></Footer>
           </footer>
-        </div>
+        </motion.div>
     );
 };
 

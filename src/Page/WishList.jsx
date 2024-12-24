@@ -4,7 +4,7 @@ import axios from 'axios';
 import { FaTrashAlt } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-
+import { motion} from "framer-motion";
 const WishList = () => {
     const {user}=useContext(AuthContext)
 const [wishLists,setWishLists]=useState([])
@@ -12,20 +12,25 @@ const [wishLists,setWishLists]=useState([])
 fetchData()
     },[])
     const fetchData =async()=>{
-const {data}= await axios.get(`http://localhost:6500/wishList?email=${user?.email}`)
+const {data}= await axios.get(`https://e-blogs-server.vercel.app/wishList?email=${user?.email}`,{withCredentials:true})
 setWishLists(data)
     }
     const handleRemove=(id)=>{
-        axios.delete(`http://localhost:6500/wishList/${id}`)
+        axios.delete(`https://e-blogs-server.vercel.app/wishList/${id}`,{withCredentials:true})
         .then(res=> {
-            console.log(res.data)
+            // console.log(res.data)
             toast.success('successfully deleted')
             const remaining =wishLists.filter(list => list._id !== id)
             setWishLists(remaining)
         })
     }
     return (
-        <div className='my-10'>
+        <motion.div initial={{ opacity: 0, y: 50 }} // 
+        animate={{ opacity: 1, y: 0 }} 
+        transition={{
+          duration: 1, 
+          ease: "easeOut", 
+        }} className='my-10'>
                <div className="overflow-x-auto mt-10">
         <table className="table">
           <thead>
@@ -73,7 +78,7 @@ setWishLists(data)
          
         </table>
       </div>
-        </div>
+        </motion.div>
     );
 };
 

@@ -5,6 +5,7 @@ import loginLottie from '../assets/loginLottie.json'
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 const Login = () => {
   const {loginWithEmail,registerWithGoogle}=useContext(AuthContext)
      const [showPass,setShowPass]=useState(false)
@@ -12,7 +13,8 @@ const navigate = useNavigate()
 const handleGoogleRegister=()=>{
   registerWithGoogle()
   .then((result)=>{
-    console.log(result.user)
+    // console.log(result.user)
+    toast.success('successfully logged In')
     navigate('/')
   })
 }
@@ -21,12 +23,14 @@ const handleGoogleRegister=()=>{
       const form = e.target 
       const email = form.email.value 
       const password = form.password.value 
-      console.table({email,password})
+      // console.table({email,password})
       loginWithEmail(email,password)
       .then((result)=>{
-        console.log(result.user)
+        // console.log(result.user)
+        toast.success('successfully logged In')
         navigate('/')
       })
+      .catch(err=> toast.error('something went wrong try again later'))
      }
     return (
         <div className='flex md:flex-row-reverse flex-col'>
