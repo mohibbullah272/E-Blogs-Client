@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { FaComment } from 'react-icons/fa';
+import { FaComment, FaPen } from 'react-icons/fa';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import axios from 'axios';
@@ -49,7 +49,7 @@ fetchComment()
            <div className='my-4'>
             {
                 user?.email === blog?.owner?.email && <Link to={`/updateBlog/${id}`}>
-                <button className='btn btn-neutral'>Update Blog</button>
+                <button className='btn btn-neutral flex items-center gap-2'>Update Blog <FaPen></FaPen></button>
                 </Link>
             }
            </div>

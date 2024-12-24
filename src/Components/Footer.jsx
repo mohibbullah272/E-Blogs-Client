@@ -5,7 +5,7 @@ const Footer = () => {
         <div  className='bg-black/90 text-white rounded-t-xl'>
             <div className='p-5 text-center'>
                 <h3 className='text-2xl py-2'>Lets get started with something great</h3>
-                <p>join us over 400 blogs post daily</p>
+                <p>join us over +400 blogs post daily</p>
             </div>
             <div className='flex justify-center gap-5'>
                 <button className='btn btn-outline text-white'>Chat to us</button>
