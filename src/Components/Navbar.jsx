@@ -59,7 +59,7 @@ const Navbar = () => {
             </ul>
           </div>
         <Link to={'/'}>
-        <p className="btn btn-ghost text-xl">E-Blogs 
+        <p className="btn flex gap-2 items-center btn-ghost text-xl">E-Blogs 
           <IoNewspaperOutline />
           </p>
         </Link>

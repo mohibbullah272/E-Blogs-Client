@@ -5,15 +5,18 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { motion} from "framer-motion";
+import useAxiosSecure from '../Hook/useAxiosSecure';
 const WishList = () => {
     const {user}=useContext(AuthContext)
 const [wishLists,setWishLists]=useState([])
+const axiosSecure = useAxiosSecure()
     useEffect(()=>{
 fetchData()
     },[])
-    const fetchData =async()=>{
-const {data}= await axios.get(`https://e-blogs-server.vercel.app/wishList?email=${user?.email}`,{withCredentials:true})
-setWishLists(data)
+    const fetchData =()=>{
+axiosSecure.get(`/wishList?email=${user?.email}`)
+.then(res=> setWishLists(res.data))
+
     }
     const handleRemove=(id)=>{
         axios.delete(`https://e-blogs-server.vercel.app/wishList/${id}`,{withCredentials:true})

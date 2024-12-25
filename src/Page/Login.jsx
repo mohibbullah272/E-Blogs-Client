@@ -60,8 +60,8 @@ const handleGoogleRegister=()=>{
           <button className="btn btn-primary">Login</button>
         </div>
         <div className='divider'>Or</div>
-        <div className='  flex justify-center text-center mx-auto'>
-<button onClick={handleGoogleRegister} className='flex gap-2 items-center btn btn-outline w-full text-center'><FaGoogle></FaGoogle> login with google</button>
+        <div className='w-full  flex justify-center text-center mx-auto'>
+<button onClick={handleGoogleRegister} className='flex gap-2 items-center  btn btn-outline w-full text-center'><img width="25" height="25" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/> login with google</button>
             </div>
             <p>didn't have an account ? <Link className='underline' to={'/register'}>Register</Link></p>
       </form>

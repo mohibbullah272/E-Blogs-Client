@@ -30,7 +30,7 @@ finally{
   }
     return (
         <div>
-          <div className="flex flex-wrap  gap-3 justify-center items-center">
+          <div className="flex flex-wrap  gap-3 justify-center my-3 items-center">
 
           <div className="dropdown-select">
      
@@ -63,7 +63,7 @@ finally{
   </svg>
 </label>
             </div>
-            <div>
+            <div className="md:flex hidden">
                 <button onClick={handleReset} className="btn border-none bg-[#e2dcd6]">Reset</button>
             </div>
           </div>
