@@ -1,15 +1,28 @@
-## Project Name
-> E-Blogs
-* Live Link [(https://e-blogs-1ae44.web.app/)]
-## Project Purpose
-**This project is helpful for who interested in reading blogs cause the project is blog based website here user can upload there valuable content and read others blogs and comment on their blogs also user can store a blog in there own privet wishlist**
+# E-Blog
 
-## Key Features
-* *Login & SignUp Features*
-* *User can upload there valuable contents*
-* *Users can read others blogs and comments on others blogs*
-* *User can make change on their own Blogs  and on the detail page user can see full version of background image*
-* *For provide more secure service we use jwt authentication system*
+**E-Blog** is a full-featured blogging platform built using the MERN stack. It allows users to share their thoughts, interact with others through comments, and manage their own blogs efficiently, E-Blog provides a seamless user experience for sharing and exploring content.
+
+---
+
+
+##  Features:
+- **Create and Share**: Write and publish blog posts effortlessly.
+- **Engage with Posts**: View blogs from other users and leave comments.
+- **Blog Management**: Edit, delete, and organize your blogs.
+- **Bookmark Blogs**: Save your favorite posts for later.
+- **User Authentication**: Secure login and signup functionality.
+
+---
+
+## Technologies Used
+
+- **Frontend**: React.js, Tailwind CSS
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Authentication**: Firebase Auth system
+- **Other Tools**: Axios, React Router DOM
+
+---
 
 ### Npm package used in 
 * *React-data table for showing top 10 blogs*
@@ -18,3 +31,6 @@
 * *react-photo-view for show full format of an blog background image*
 * *react-toastify package for provide better toast message to client*
 * *To provide more user experience we implement react-simple-typewriter for automatic typing*
+
+### Live Link 
+[(https://e-blogs-1ae44.web.app/)]
