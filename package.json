@@ -34,7 +34,7 @@
     "react-typed": "^2.0.12",
     "sort-by": "^1.2.0",
     "styled-components": "^6.1.13",
-    "swiper": "^11.1.15"
+    "swiper": "^11.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

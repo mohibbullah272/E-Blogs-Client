@@ -30,7 +30,7 @@ const BlogStats = () => {
 
   return (
     <div className="bg-[#f5f5f5] py-10 text-center text-[#4a4a4a]" ref={statsRef}>
-      <h2 className="text-2xl font-bold mb-6">Our Community's Impact</h2>
+    
       <div className="flex justify-center gap-10">
         <div>
           <h3 className="text-4xl font-bold">

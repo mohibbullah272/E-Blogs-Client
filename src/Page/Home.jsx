@@ -7,6 +7,8 @@ import Faqs from "../Components/Faqs";
 import NewsLatter from "../Components/NewsLatter";
 import SharedTitle from "../Components/SharedTitle";
 import BlogStats from "../Components/BlogStat";
+import FeatureBlog from "./FeatureBlog";
+import Tranding from "../Components/Tranding";
 
 
 const Home = () => {
@@ -21,10 +23,15 @@ const Home = () => {
             <PopularBlog></PopularBlog>
          </section>
          <section className="my-20">
+            <SharedTitle title={'Trending Blogs'}></SharedTitle>
+         <Tranding></Tranding>
+         </section>
+         <section className="my-20">
             <SharedTitle title={'Recent Blogs'}></SharedTitle>
             <RecentBlog></RecentBlog>
          </section>
          <section>
+            <SharedTitle title={"Our Community's Impact"}></SharedTitle>
             <BlogStats></BlogStats>
          </section>
          <section className="my-20">

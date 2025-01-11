@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "title": "Mastering the Art of Minimalist Living",
+      "description": "Learn how to declutter your life and embrace a more intentional way of living.",
+      "image": "https://images.pexels.com/photos/8092453/pexels-photo-8092453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+     
+    },
+    {
+      "id": 2,
+      "title": "10 Productivity Hacks for Remote Workers",
+      "description": "Discover practical tips to stay focused and productive while working from home.",
+      "image": "https://images.pexels.com/photos/7394471/pexels-photo-7394471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      
+    },
+    {
+      "id": 3,
+      "title": "The Future of Artificial Intelligence in Daily Life",
+      "description": "Explore how AI is reshaping the way we live, work, and connect with the world.",
+      "image": "https://images.pexels.com/photos/6153741/pexels-photo-6153741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+     
+    },
+    {
+      "id": 4,
+      "title": "Top 5 Travel Destinations for 2025",
+      "description": "Plan your next adventure with our curated list of must-visit places for the new year.",
+      "image": "https://images.pexels.com/photos/2070485/pexels-photo-2070485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      
+    },
+    {
+      "id": 5,
+      "title": "Healthy Eating Made Simple: Beginner's Guide",
+      "description": "Kickstart your health journey with easy and delicious meal ideas.",
+      "image": "https://images.pexels.com/photos/29142304/pexels-photo-29142304/free-photo-of-autumn-harvest-pumpkins-fruits-and-flowers.jpeg?auto=compress&cs=tinysrgb&w=400"
+  
+    }
+  ]
+  

@@ -59,7 +59,7 @@ const Navbar = () => {
               <NavLink to={'/support'} className='p-2 font-semibold md:hidden flex'>Support</NavLink>
               {
                 user && <>
-                <NavLink to={'/myPost'} className='p-2 md:hidden flex font-semibold'>My Post</NavLink>
+                <NavLink to={'/myPost'} className='p-2 md:hidden flex font-semibold'>My Profile</NavLink>
                  <NavLink className='p-2 font-semibold'  to={'/wishList'}>WishList</NavLink>
                 </>
               }
@@ -121,7 +121,7 @@ const Navbar = () => {
            tabIndex={0}
            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
              <NavLink className='p-2 font-semibold'  to={'/wishList'}>WishList</NavLink>
-        <NavLink to={'/myPost'} className='p-2 font-semibold'>My Post</NavLink>
+        <NavLink to={'/myPost'} className='p-2 font-semibold'>My Profile</NavLink>
          <NavLink to={'/support'} className='p-2 font-semibold'>Support</NavLink>
            <li><button className='p-2 font-semibold' onClick={handleLogOut}>Logout</button></li>
          </ul>
