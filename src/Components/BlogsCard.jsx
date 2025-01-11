@@ -42,7 +42,7 @@ const BlogsCard = ({blog}) => {
 </div>
     </div>
     <h2 className="card-title">{title}</h2>
-    <p>{shortDes}</p>
+   
     <p >Category: <span className="font-semibold">{category}</span></p>
     <div className="card-actions justify-between">
      <Link to={`/details/${_id}`}>

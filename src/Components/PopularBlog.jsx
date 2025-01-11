@@ -4,7 +4,7 @@ import "aos/dist/aos.css";
 
 const PopularBlog = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000 }); // Initialize AOS with animation duration
+    AOS.init({ duration: 1000 }); 
   }, []);
 
   return (

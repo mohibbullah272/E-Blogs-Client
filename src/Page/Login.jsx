@@ -33,7 +33,7 @@ const handleGoogleRegister=()=>{
       .catch(err=> toast.error('something went wrong try again later'))
      }
     return (
-        <div className='flex md:flex-row-reverse flex-col'>
+        <div className='flex  md:flex-row-reverse flex-col'>
       <div className='md:w-1/2 md:h-[500px]'>
 <Lottie animationData={loginLottie} loop={true}></Lottie>
       </div>

@@ -1,63 +1,52 @@
 import React from 'react';
-import { IoNewspaperOutline } from "react-icons/io5";
+import { FaFacebook, FaGithub, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
-        <div  className='bg-black/90 text-white rounded-t-xl'>
-            <div className='p-5 text-center'>
-                <h3 className='text-2xl py-2'>Lets get started with something great</h3>
-                <p>join us over +400 blogs post daily</p>
-            </div>
-            <div className='flex justify-center gap-5'>
-                <button className='btn btn-outline text-white'>Chat to us</button>
-                <button className='btn border-none bg-stone-600 text-gray-300'>Get Started </button>
-            </div>
-            <div className='md:flex p-4 md:text-center gap-5 justify-around mt-5'>
-                <div>
-                    <h4  className='font-bold'>Product</h4>
-                    <p>About us</p>
-                    <p>Career</p>
-                    <p>Press</p>
-                    <p>News</p>
-                    <p>Contact</p>
-                </div>
-                <div>
-                    <h4 className='font-bold'>Company</h4>
-                    <p>Blogs</p>
-                    <p>NewsLatter</p>
-                    <p>Event</p>
-                    <p>Tutorials</p>
-                    <p>Support</p>
-                </div>
-                <div>
-                    <h4 className='font-bold'>Resource</h4>
-                    <p>OverView</p>
-                    <p>Solution</p>
-                    <p>Tutorials </p>
-                    <p>Pricing</p>
-                    <p>Releases</p>
-                </div>
-                <div>
-                    <h4 className='font-bold'>Social</h4>
-                    <p>Facebook</p>
-                    <p>Youtube</p>
-                    <p>WhatsApp</p>
-                    <p>Twitter</p>
-                    <p>LinkedIn</p>
-                </div>
-                <div>
-                    <h4 className='font-bold'>Legal</h4>
-                    <p>Terms</p>
-                    <p>Privacy</p>
-                    <p>Policy</p>
-                    <p>Cookie</p>
-                </div>
-            </div>
-          <hr  className='my-3'/>
-            <div className='flex justify-between p-5'>
-                <p className='flex items-center gap-2 text-2xl'><IoNewspaperOutline className='text-white text-2xl'></IoNewspaperOutline> E-Blogs</p>
-                <p>© 2024  E-Blogs All Rights Reserved</p>
-            </div>
+    <div className='md:p-20 p-10 bg-black/90 text-[#4a4a4a]'>
+    <div className='md:flex max-w-7xl mx-auto space-y-5 justify-between items-center'>
+    <div>
+      <div className='flex items-center gap-3'>
+        <img width="50" height="50" src="https://img.icons8.com/nolan/64/blog.png" alt="blog"/>
+        <p className='text-3xl text-white/70'>E-Blogs</p>
         </div>
+        <div className='flex mt-5 items-center gap-3'>
+           <Link to={'/addBlog'}>
+           <button className='py-2 rounded-3xl px-5 text-white hover:bg-slate-50/50 bg-[#a57c56]'>Get Started</button>
+           </Link>
+           <Link to={'/support'}>
+           <button className='py-2 rounded-3xl px-7 text-white hover:bg-slate-100/20 border-2'>Support</button>
+           </Link>
+        </div>
+        <div className='flex  mt-3 items-center gap-3'>
+            <a target='_blank' href="https://github.com/mohibbullah272/E-Blogs-Client"><FaGithub className='text-2xl text-black'></FaGithub> </a>
+            <a target='_blank' href="https://www.facebook.com/"><FaFacebook className='text-2xl text-blue-500'></FaFacebook> </a>
+            <a target='_blank' href="https://www.youtube.com/"><FaYoutube className='text-2xl text-red-600'></FaYoutube> </a>
+            <a target='_blank' href="https://www.instagram.com/"><FaInstagram className='text-2xl text-pink-500'></FaInstagram> </a>
+        </div>
+      </div>
+        <div className='md:flex   gap-20'>
+<div className='text-white/90'>
+    <h2 className='font-semibold text-xl'>Service</h2>
+    <ul>
+        <li><Link className='underline' to={'/allBlog'}>All Blogs</Link></li>
+        <li><Link className='underline' to={'/featureBlog'}>Featured Blogs</Link></li>
+        <li><Link className='underline' to={'/addBlog'}>Create Post</Link></li>
+        
+    </ul>
+</div>
+<div className='text-white/90'>
+<h2 className='font-semibold text-xl'>Legal</h2>
+    <ul>
+        <li><Link className='underline' to={'/policy'}>Privacy Policy</Link></li>
+        <li><Link className='underline' to={'/support'}>Support</Link></li>     
+    </ul>
+</div>
+        </div>
+    </div>
+    <hr  className='mt-9'/>
+    <p className='text-white/90 text-center mt-5'>Copyright © {new Date().getFullYear()} - All right reserved by E-blogs Ltd</p>
+    </div>
     );
 };
 

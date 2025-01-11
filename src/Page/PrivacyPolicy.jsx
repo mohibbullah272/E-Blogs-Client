@@ -43,7 +43,7 @@ const PrivacyPolicy = () => {
           <ul style={{ marginLeft: "1.5rem", listStyle: "disc" }}>
             <li>Provide and improve our services.</li>
             <li>Respond to your inquiries and support requests.</li>
-            <li>Send newsletters or updates (if you opt-in).</li>
+            <li>Send newsletters or updates .</li>
           </ul>
         </p>
 

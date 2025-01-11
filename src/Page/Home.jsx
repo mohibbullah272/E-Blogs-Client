@@ -6,6 +6,7 @@ import RecentBlog from "../Components/RecentBlog";
 import Faqs from "../Components/Faqs";
 import NewsLatter from "../Components/NewsLatter";
 import SharedTitle from "../Components/SharedTitle";
+import BlogStats from "../Components/BlogStat";
 
 
 const Home = () => {
@@ -23,6 +24,9 @@ const Home = () => {
             <SharedTitle title={'Recent Blogs'}></SharedTitle>
             <RecentBlog></RecentBlog>
          </section>
+         <section>
+            <BlogStats></BlogStats>
+         </section>
          <section className="my-20">
             <SharedTitle title={'FAQS'}></SharedTitle>
             <Faqs></Faqs>
@@ -30,6 +34,7 @@ const Home = () => {
          <section className="mt-20 p-5">
             <NewsLatter></NewsLatter>
          </section>
+   
         </div>
     );
 };

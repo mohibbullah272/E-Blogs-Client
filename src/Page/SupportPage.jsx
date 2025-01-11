@@ -1,6 +1,12 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const SupportPage = () => {
+    const handleSubmit=(e)=>{
+        e.preventDefault()
+        toast.info('We receive your message please wait for response')
+        e.target.reset()
+    }
   return (
     <div
       style={{
@@ -31,7 +37,7 @@ const SupportPage = () => {
           {/* Contact Form */}
           <div className="md:w-1/2 mb-8 md:mb-0">
             <h2 style={{ fontSize: "1.8rem", marginBottom: "1rem" }}>Contact Us</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div style={{ marginBottom: "1rem" }}>
                 <label
                   htmlFor="name"
@@ -46,6 +52,7 @@ const SupportPage = () => {
                 <input
                   id="name"
                   type="text"
+                  required
                   placeholder="Enter your name"
                   style={{
                     width: "100%",
@@ -69,6 +76,7 @@ const SupportPage = () => {
                 <input
                   id="email"
                   type="email"
+                  required
                   placeholder="Enter your email"
                   style={{
                     width: "100%",
@@ -92,6 +100,7 @@ const SupportPage = () => {
                 <textarea
                   id="message"
                   rows="5"
+                  required
                   placeholder="Type your message here"
                   style={{
                     width: "100%",

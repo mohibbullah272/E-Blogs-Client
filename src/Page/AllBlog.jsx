@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { AiOutlineControl } from "react-icons/ai";
 import BlogsCard from "../Components/BlogsCard";
 import LoadingPage from "./LoadingPage";
 
