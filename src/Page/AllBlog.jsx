@@ -8,10 +8,11 @@ const AllBlog = () => {
   const [filter,setFilter]=useState('')
   const [search,setSearch]=useState('')
 const [blogs,setBlogs]=useState([])
-const [loading,setLoading]=useState(true)
+const [loading,setLoading]=useState(false)
   useEffect(()=>{
-    setLoading(true)
+
 try{
+  setLoading(true)
   axios.get(`https://e-blogs-server.vercel.app/all-blogs?filter=${filter}&search=${search}`)
   .then(res=> setBlogs(res.data))
 }catch(err){
@@ -29,7 +30,7 @@ finally{
     return <LoadingPage></LoadingPage>
   }
     return (
-        <div>
+        <div className="min-h-screen">
           <div className="flex flex-wrap  gap-3 justify-center my-3 items-center">
 
           <div className="dropdown-select">

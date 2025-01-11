@@ -19,11 +19,11 @@ const BlogsCard = ({blog}) => {
     .then(res => toast.success('blog successfully added to wishlist'))
     }
     return (
-        <motion.div      initial={{ opacity: 0 }} // Start with 0 opacity (invisible)
-        animate={{ opacity: 1 }} // Animate to full opacity (visible)
+        <motion.div      initial={{ opacity: 0 }} // 
+        animate={{ opacity: 1 }} 
         transition={{
-          duration: 1, // Duration of the fade-in effect
-          ease: "easeOut", // Smooth easing function
+          duration: 1, 
+          ease: "easeOut", 
         }}  className="card card-compact bg-base-100  shadow-xl">
   <figure>
     <img

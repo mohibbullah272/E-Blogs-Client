@@ -93,6 +93,7 @@ fetchComment()
       ></textarea>
       <input
         type="submit"
+        disabled={!user}
         className="btn border-none bg-stone-500/70 text-gray-900 absolute bottom-2 right-2"
         value="Submit"
       />

@@ -3,10 +3,10 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 const LoadingPage = () => {
     return (
-        <div>
+        <div className='min-h-screen'>
 
 <Skeleton /> 
-<Skeleton count={10} />
+<Skeleton count={30} />
 
         </div>
     );

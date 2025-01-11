@@ -6,34 +6,51 @@ import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { motion} from "framer-motion";
 import useAxiosSecure from '../Hook/useAxiosSecure';
+import LoadingPage from './LoadingPage';
 const WishList = () => {
     const {user}=useContext(AuthContext)
+    const [loading,setLoading]=useState(true)
 const [wishLists,setWishLists]=useState([])
 const axiosSecure = useAxiosSecure()
     useEffect(()=>{
 fetchData()
     },[])
-    const fetchData =()=>{
-axiosSecure.get(`/wishList?email=${user?.email}`)
-.then(res=> setWishLists(res.data))
+    const fetchData =async()=>{
+try{
+  setLoading(true)
+  const {data} = await  axiosSecure.get(`/wishList?email=${user?.email}`)
+  setWishLists(data)
+}catch(err){
+  console.log(err)
+}
+finally{
+  setLoading(false)
+}
+
+
 
     }
+if(loading){
+  return <LoadingPage></LoadingPage>
+}
+
     const handleRemove=(id)=>{
         axios.delete(`https://e-blogs-server.vercel.app/wishList/${id}`,{withCredentials:true})
         .then(res=> {
-            // console.log(res.data)
+          
             toast.success('successfully deleted')
             const remaining =wishLists.filter(list => list._id !== id)
             setWishLists(remaining)
         })
     }
+  
     return (
         <motion.div initial={{ opacity: 0, y: 50 }} // 
         animate={{ opacity: 1, y: 0 }} 
         transition={{
           duration: 1, 
           ease: "easeOut", 
-        }} className='my-10'>
+        }} className='my-10 min-h-screen'>
                <div className="overflow-x-auto mt-10">
         <table className="table">
           <thead>

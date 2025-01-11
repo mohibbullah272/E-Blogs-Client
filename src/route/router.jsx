@@ -12,6 +12,9 @@ import ErrorPage from "../Page/ErrorPage";
 import Details from "../Page/Details";
 import axios from "axios";
 import UpdateBlog from "../Page/UpdateBlog";
+import PrivacyPolicy from "../Page/PrivacyPolicy";
+import SupportPage from "../Page/SupportPage";
+import MyPost from "../Page/MyPost";
 
 
 
@@ -36,8 +39,20 @@ const router =createBrowserRouter([
                 element:<AllBlog></AllBlog>
             },
             {
+                path:'myPost',
+                element:<MyPost></MyPost>
+            },
+            {
                 path:'featureBlog',
                 element:<FeatureBlog></FeatureBlog>
+            },
+            {
+                path:"support",
+                element:<SupportPage></SupportPage>
+            },
+            {
+                path:'policy',
+                element:<PrivacyPolicy></PrivacyPolicy>
             },
             {
                 path:'wishList',
@@ -55,9 +70,9 @@ const router =createBrowserRouter([
             },
             {
                 path:'details/:id',
-                element:<PrivetRoute>
+                element:
                     <Details></Details>
-                </PrivetRoute>,
+              ,
                 loader:({params})=>axios.get(`https://e-blogs-server.vercel.app/details/${params.id}`,{withCredentials:true})
             },
             {

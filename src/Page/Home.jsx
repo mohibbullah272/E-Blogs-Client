@@ -5,22 +5,26 @@ import PopularBlog from "../Components/PopularBlog";
 import RecentBlog from "../Components/RecentBlog";
 import Faqs from "../Components/Faqs";
 import NewsLatter from "../Components/NewsLatter";
+import SharedTitle from "../Components/SharedTitle";
 
 
 const Home = () => {
     const {name}=useContext(AuthContext)
     return (
         <div>
-           <section className="p-10">  
+         <section>
             <Banner></Banner>
-           </section>
-         <section className="my-10 max-w-5xl mx-auto">
+         </section>
+         <section className="my-20 ">
+            <SharedTitle title={'popular blogs'}></SharedTitle>
             <PopularBlog></PopularBlog>
          </section>
          <section className="my-20">
+            <SharedTitle title={'Recent Blogs'}></SharedTitle>
             <RecentBlog></RecentBlog>
          </section>
          <section className="my-20">
+            <SharedTitle title={'FAQS'}></SharedTitle>
             <Faqs></Faqs>
          </section>
          <section className="mt-20 p-5">

@@ -34,7 +34,7 @@ axios.post('https://e-blogs-server.vercel.app/addBlog',blogData,{withCredentials
 })
      }
     return (
-        <div className=' md:p-10 p-5'>
+        <div className='min-h-screen md:p-10 p-5'>
            <p className='text-center text-3xl'>Create a New Blog Post</p>
            <h3 className='text-gray-400 text-center '>Share Your Thoughts with the World!</h3>
            <form onSubmit={handleSubmit}>

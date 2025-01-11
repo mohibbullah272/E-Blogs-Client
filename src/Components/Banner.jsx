@@ -16,10 +16,10 @@ const Banner = () => {
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat'
                 }}
-                className="relative h-[600px] rounded-3xl bg-center"
+                className="relative h-[600px]  bg-center"
             >
                
-                <div className="absolute inset-0 bg-black/50 rounded-3xl"></div>
+                <div className="absolute inset-0 bg-black/50 "></div>
 
                
                 <div className="relative flex flex-col items-center">
@@ -35,11 +35,11 @@ const Banner = () => {
         />
                         
                     </h3>
-                    <p className="text-center text-white/70">
+                    <p className="text-center text-white/90">
                         Stay connected with live updates and notifications
                     </p>
                  <Link to={'/allBlog'}>
-                 <button className="btn border-none bg-[#857c6b] text-gray-100/60 mt-5">Explore more</button>
+                 <button className="btn border-none bg-[#a57c56] text-gray-100/50 mt-5">Explore more</button>
                  </Link>
                 </div>
             </div>

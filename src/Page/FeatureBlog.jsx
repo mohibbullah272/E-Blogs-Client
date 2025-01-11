@@ -45,7 +45,7 @@ const FeatureBlog = () => {
         fetchData()
     },[])
     return (
-        <motion.div initial={{ opacity: 0, y: 50 }} 
+        <motion.div className='min-h-screen ' initial={{ opacity: 0, y: 50 }} 
         animate={{ opacity: 1, y: 0 }}
         transition={{
           duration: 1,

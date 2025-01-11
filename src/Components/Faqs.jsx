@@ -4,7 +4,7 @@
 const Faqs = () => {
     return (
         <div className="md:p-10 p-5">
-            <h3 className="flex items-center text-3xl ">FAQs ?,,, </h3>
+         
             <div>
             <div className="collapse collapse-arrow bg-base-200">
   <input type="radio" name="my-accordion-2" defaultChecked />
