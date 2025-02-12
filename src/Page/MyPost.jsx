@@ -32,11 +32,13 @@ if(isLoading){
         <div className="p-5">
     <h4 className="text-2xl italic">Activity Details,,,</h4>       
 
-   <div className="">
+   <div className="grid md:grid-cols-2 grid-cols-1 gap-5 p-10">
     
    {
         posts.map(post=> <Post key={post._id} post={post}></Post>)
-     }    </div> 
+     }    
+     
+     </div> 
 
         </div>
         </div>
