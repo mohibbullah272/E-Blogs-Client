@@ -12,7 +12,7 @@ const MyPost = () => {
 const {data:posts,isLoading,refetch}=useQuery({
     queryKey:["post",user?.email],
     queryFn:async()=>{
-        const {data} =await axios(`http://localhost:6500/posts?email=${user?.email}`)
+        const {data} =await axios(`https://e-blogs-server.vercel.app/posts?email=${user?.email}`)
         return data
     }
 })

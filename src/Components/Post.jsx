@@ -9,7 +9,7 @@ const Post = ({post}) => {
             <p>{title}</p>
             <p>{shortDes}</p>
           <div className="flex justify-end">
-      <Link>
+      <Link to={`/details/${_id}`}>
       <button className="btn bg-[#a57c56] border-none  text-white"> 
                 view blog
             </button>
