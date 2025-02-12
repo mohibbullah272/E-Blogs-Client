@@ -44,11 +44,14 @@ signUpWithEmail(email,password)
 })
     }
     return (
-        <div className='flex md:flex-row-reverse flex-col'>
-      <div className='md:w-1/2 md:h-[500px]'>
+        <div className='flex min-h-screen md:flex-row-reverse flex-col'>
+      <div className='md:w-1/2 md:h-[500px] md:flex hidden items-center'>
 <Lottie animationData={registerLottie} loop={true}></Lottie>
       </div>
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 mt-20 shadow-2xl mx-auto ">
+      <div className="md:hidden flex justify-center mt-5">
+        <h3 className="text-3xl ">Register Now !!</h3>
+      </div>
+      <div className="card bg-base-100 w-full h-[600px] max-w-sm shrink-0 mt-10 shadow-2xl mx-auto ">
       <form onSubmit={handleSubmit} className="card-body">
         <div className="form-control">
           <label className="label">

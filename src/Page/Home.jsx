@@ -7,7 +7,6 @@ import Faqs from "../Components/Faqs";
 import NewsLatter from "../Components/NewsLatter";
 import SharedTitle from "../Components/SharedTitle";
 import BlogStats from "../Components/BlogStat";
-import FeatureBlog from "./FeatureBlog";
 import Tranding from "../Components/Tranding";
 
 

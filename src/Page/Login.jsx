@@ -33,11 +33,14 @@ const handleGoogleRegister=()=>{
       .catch(err=> toast.error('something went wrong try again later'))
      }
     return (
-        <div className='flex  md:flex-row-reverse flex-col'>
-      <div className='md:w-1/2 md:h-[500px]'>
+        <div className='flex min-h-screen md:flex-row-reverse flex-col'>
+      <div className='md:w-1/2 md:flex justify-center hidden md:h-[500px]'>
 <Lottie animationData={loginLottie} loop={true}></Lottie>
       </div>
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 mt-20 shadow-2xl mx-auto ">
+      <div className='md:w1/2 md:hidden flex justify-center items-center mt-10'>
+        <h3 className='text-3xl '>WELCOME BACK!!</h3>
+      </div>
+      <div className="card bg-base-100 h-[500px] w-full max-w-sm  md:mt-20 mt-10 shadow-2xl mx-auto ">
       <form onSubmit={handleSubmit} className="card-body">
         <div className="form-control">
           <label className="label">
