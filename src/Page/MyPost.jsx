@@ -11,10 +11,11 @@ const MyPost = () => {
 const {data:post,isLoading,refetch}=useQuery({
     queryKey:["post",user?.email],
     queryFn:async()=>{
-        const {data} = axios(`/posts?email=${user?.email}`)
+        const {data} =await axios(`http://localhost:6500/posts?email=${user?.email}`)
         return data
     }
 })
+console.log(post)
 if(isLoading){
     return <LoadingPage></LoadingPage>
 }
