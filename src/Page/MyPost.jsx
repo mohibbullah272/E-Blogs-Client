@@ -3,19 +3,19 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import LoadingPage from "./LoadingPage";
+import Post from "../Components/Post";
 
 
 
 const MyPost = () => {
     const {user}=useContext(AuthContext)
-const {data:post,isLoading,refetch}=useQuery({
+const {data:posts,isLoading,refetch}=useQuery({
     queryKey:["post",user?.email],
     queryFn:async()=>{
         const {data} =await axios(`http://localhost:6500/posts?email=${user?.email}`)
         return data
     }
 })
-console.log(post)
 if(isLoading){
     return <LoadingPage></LoadingPage>
 }
@@ -31,7 +31,13 @@ if(isLoading){
         </div>
         <div className="p-5">
     <h4 className="text-2xl italic">Activity Details,,,</h4>       
-           
+
+   <div className="">
+    
+   {
+        posts.map(post=> <Post key={post._id} post={post}></Post>)
+     }    </div> 
+
         </div>
         </div>
     );
